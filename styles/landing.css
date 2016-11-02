@@ -1,4 +1,4 @@
-body.landing {
+bbody.landing {
      background-color: rgb(58,23,63);
  }
  
@@ -9,7 +9,7 @@ body.landing {
      background-repeat: no-repeat;
      background-position: center center;
      background-size: cover;
-}
+ }
  
  .hero-content .hero-title {
      position: absolute;
@@ -24,25 +24,25 @@ body.landing {
      text-transform: uppercase;
      letter-spacing: 0.5rem;
      text-shadow: 1px 1px 0px rgb(58,23,63);
-}
+ }
  
  .selling-points {
      position: relative;
-}
+ }
  
  .point {
      position: relative;
      padding: 2rem;
      text-align: center;
-}
+ }
  
  .point .point-title {
      font-size: 1.25rem;
-}
+ }
  
  .ion-music-note,
  .ion-radio-waves,
  .ion-iphone {
      color: rgb(233,50,117);
      font-size: 5rem;
-}
+ }
