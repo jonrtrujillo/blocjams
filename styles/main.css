@@ -12,6 +12,7 @@ html {
  body.landing {
      background-color: rgb(58,23,63); /* sets the background color to an RGB value (see below) */
  }
+<<<<<<< HEAD
 .navbar {
      padding: 0.5rem;
      background-color: rgb(101,18,95);
@@ -71,3 +72,44 @@ html {
      color: rgb(233,50,117);
      font-size: 5rem;
  }
+=======
+*, *::before, *::after {
+     -moz-box-sizing: border-box;
+     -webkit-box-sizing: border-box;
+     box-sizing: border-box;
+ }
+/* Medium and small screens (640px) */
+ @media (min-width: 640px) {
+   html { font-size: 112%; }
+ }
+ 
+ /* Large screens (1024px) */
+ @media (min-width: 1024px) {
+   html { font-size: 120%; }
+ .column {
+         float: left;
+         padding-left: 1rem;
+         padding-right: 1rem;
+     }
+.column.full { width: 100%; }
+.column.two-thirds { width: 66.7%; }
+.column.half { width: 50%; }
+.column.third { width: 33.3%; }
+.column.fourth { width: 25%; }
+.column.flow-opposite { float: right; }
+}
+
+.container {
+     margin: 0 auto;
+     max-width: 64rem;
+ }
+.clearfix::before,
+.clearfix::after {
+   content: " ";
+   display: table;
+}
+
+.clearfix::after {
+   clear: both;
+}
+>>>>>>> checkpoint4
