@@ -90,7 +90,6 @@ var getSongItem = function(element) {
 };
 
 var clickHandler = function(targetElement) {
- };
 var songItem = getSongItem(targetElement);
     if (currentlyPlayingSong === null) {
          songItem.innerHTML = pauseButtonTemplate;
@@ -104,7 +103,7 @@ var songItem = getSongItem(targetElement);
          songItem.innerHTML = pauseButtonTemplate;
          currentlyPlayingSong = songItem.getAttribute('data-song-number');
      }
-
+};
 window.onload = function() {
     setCurrentAlbum(albumPicasso);
     songListContainer.addEventListener('mouseover', function(event) {
@@ -113,6 +112,7 @@ window.onload = function() {
             if (songItem.getAttribute('data-song-number') !== currentlyPlayingSong) { songItem.innerHTML = playButtonTemplate }
         }
         });
+}
     for (var i = 0; i < songRows.length; i++) {
          songRows[i].addEventListener('mouseleave', function(event) {
              var songItem = getSongItem(event.target);
@@ -120,8 +120,8 @@ window.onload = function() {
              if (songItemNumber !== currentlyPlayingSong) {
                  songItem.innerHTML = songItemNumber;
              }
-         });
-        }
-    clickHandler(event.target);
+         });}
+        
     songRows[i].addEventListener('click', function(event) {
-}
+    clickHandler(event.target);   
+    }
