@@ -163,19 +163,18 @@ var updatePlayerBarSong = function() {
     $('.main-controls .play-pause').html(playerBarPauseButton);
 };
 
+// Where we left off Monday Dec 5th
 function togglePlayFromPlayerBar() {
     var songNumberCell = getSongNumberCell(currentlyPlayingSongNumber);
-    if (currentSoundFile.isPaused) {
-        debugger;
-        songNumberCell.html(playButtonTemplate);
+    if (currentSoundFile.isPaused()) {
+        songNumberCell.html(pauseButtonTemplate);
         // Change HTML of Player Bar
-        // Play the song
+        $('.main-controls .play-pause').html(playerBarPauseButton);
         currentSoundFile.play();
     } else {
-        songNumberCell.html(pauseButtonTemplate);
-        // Change the song number cell to pause button
+        songNumberCell.html(playButtonTemplate);
         // Change HTML player bar to pause button.
-        // Pause the song
+        $('.main-controls .play-pause').html(playerBarPlayButton);
         currentSoundFile.pause();
     }
 }
