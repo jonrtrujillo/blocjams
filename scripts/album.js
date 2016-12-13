@@ -160,7 +160,7 @@ var setupSeekBars = function() {
         });
 };
 
-                                       var trackIndex = function(album, song) {
+var trackIndex = function(album, song) {
      return album.songs.indexOf(song);
  };
 var nextSong = function() {
