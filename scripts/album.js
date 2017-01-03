@@ -107,8 +107,19 @@ var setCurrentAlbum = function(album) {
          $albumSongList.append($newRow);
      }
 };
+// setCurrentTimeInPlayerBar()
+// takes one argument, currentTime, sets text of element with .current-time to the current time
+
+// setTotalTimeInPlayerBar()
+// takes one arugment, totalTime, sets text of element with .total-time to length of song
+
+// add totalTime method to updatePlayerBarSong so time is set when a song first plays
+
+// filterTimeCode
+// takes one argument, timeInSeconds that should: use parseFloat() method to get seconds in number form, store variables whole seconds and whole minutes, return time in the format X:XX
 
 var updateSeekBarWhileSongPlays = function() {    
+    // add .current-time method to set current time in player bar
     if (currentSoundFile) {
     currentSoundFile.bind('timeupdate', function(event) {    
         var seekBarFillRatio = this.getTime() / this.getDuration();    
