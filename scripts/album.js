@@ -1,3 +1,17 @@
+var setCurrentTimeInPlayerBar = function(currentTime) {
+  // set text of .current-time element
+    // $('.current-time')
+};
+    
+
+var setTotalTimeInPlayerBar = function(totalTime){
+    // set text of .total-time element
+};
+
+var filterTimeCode = function(timeInSeconds){
+    return timeInSeconds; // 1:30
+};
+
 var setSong = function(songNumber) {
     if (currentSoundFile) {
          currentSoundFile.stop();
@@ -49,7 +63,8 @@ var clickHandler = function() {
 		// Switch from Play -> Pause button to indicate new song is playing.
 		setSong(songNumber);
 		currentSoundFile.play();
-	    var $volumeFill = $('.volume .fill');
+	    updateSeekBarWhileSongPlays();
+        var $volumeFill = $('.volume .fill');
         var $volumeThumb = $('.volume .thumb'); 
         $volumeFill.width(currentVolume + '%'); 
         $volumeThumb.css({left: currentVolume + '%'}); 
@@ -110,10 +125,11 @@ var setCurrentAlbum = function(album) {
 
 var updateSeekBarWhileSongPlays = function() {    
     if (currentSoundFile) {
-    currentSoundFile.bind('timeupdate', function(event) {    
-        var seekBarFillRatio = this.getTime() / this.getDuration();    
-        var $seekBar = $('.seek-control .seek-bar');
-        updateSeekPercentage($seekBar, seekBarFillRatio);
+        currentSoundFile.bind('timeupdate', function(event) {    
+            var seekBarFillRatio = this.getTime() / this.getDuration();    
+            var $seekBar = $('.seek-control .seek-bar');
+            updateSeekPercentage($seekBar, seekBarFillRatio);
+            setCurrentTimeInPlayerBar(filterTimeCode(this.getTime()));
         });
     }
 };
@@ -177,6 +193,7 @@ var nextSong = function() {
     //currentSongFromAlbum = currentAlbum.songs[currentSongIndex];
     setSong(currentSongIndex + 1);
     currentSoundFile.play();
+    updateSeekBarWhileSongPlays();
     $('.currently-playing .song-name').text(currentSongFromAlbum.title);
     $('.currently-playing .artist-name').text(currentAlbum.artist);
     $('.currently-playing .artist-song-mobile').text(currentSongFromAlbum.title + " - " + currentAlbum.title);
@@ -205,6 +222,7 @@ var previousSong = function() {
     //currentSongFromAlbum = currentAlbum.songs[currentSongIndex];
     setSong(currentSongIndex + 1);
     currentSoundFile.play();
+    updateSeekBarWhileSongPlays();
     $('.currently-playing .song-name').text(currentSongFromAlbum.title);
     $('.currently-playing .artist-name').text(currentAlbum.artist);
     $('.currently-playing .artist-song-mobile').text(currentSongFromAlbum.title + " - " + currentAlbum.title);
@@ -225,6 +243,7 @@ var updatePlayerBarSong = function() {
     $('.currently-playing .artist-name').text(currentAlbum.artist);
     $('.currently-playing .artist-song-mobile').text(currentSongFromAlbum.title + " - " + currentAlbum.artist);
     $('.main-controls .play-pause').html(playerBarPauseButton);
+    setTotalTimeInPlayerBar(filterTimeCode(currentSongFromAlbum.duration));
 };
 
 // Where we left off Monday Dec 5th
